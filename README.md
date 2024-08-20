@@ -46,3 +46,21 @@ nginx のリバースプロキシ機能でIPアドレスを非公開にできる
 ## 構成図
 
 ![システム構成図](mc_servers.drawio.svg)
+
+## Docker イメージについて
+
+可能な限り小さいイメージを使いたいため distroless をベースに Dockerfile を作成する予定で進める。  
+  
+必要なもの
+1. MySQLのイメージはなさそう、プラグインは「[MySQL Experience Bridge](https://www.spigotmc.org/resources/mysql-experience-bridge.7783/)」が一番良さそうだが無理そう？
+2. MongoDB Distroless [Image](https://github.com/tran4774/mongodb-distroless) ならありそう。プラグインは「[MongoDB Player Data Bridge 0.2](https://www.spigotmc.org/resources/mongodb-player-data-bridge.113091/)」
+3. 出来ればDBはPostgreSQLを使いたいため「[MySQL Experience Bridge](https://www.spigotmc.org/resources/mysql-experience-bridge.7783/)」プラグインを改良するのも考える。コード量も小さいため結構楽そう？(Java言語は好まないため触りたくはないが・・・)
+4. Java環境は「[Azul Zulu Distroless](https://hub.docker.com/r/azul/zulu-openjdk-distroless)」のDockerイメージを使う予定。CRaCをサポートしていてJavaアプリの起動が速いらしい。
+
+### Dockerイメージの数
+
+1. DB用 (MySQL, PostgreSQL, etc..)
+2. ワールド用 PufferfishMC
+3. その他Java実行環境
+
+3種類の Dockerfile を作る事でイメージは作れそうかも？  
