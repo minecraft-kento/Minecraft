@@ -14,7 +14,7 @@ Velocity
 ## プラグイン
 | Plugin                     | Memo                                                                                                           |
 |----------------------------|----------------------------------------------------------------------------------------------------------------|
-| Advanced-Portals           | サーバー間の移動用ポータル、https://github.com/sekwah41/Advanced-Portals/、https://advancedportals.sekwah.com/ |
+| Advanced-Portals           | サーバー間の移動用ポータル<br/>https://github.com/sekwah41/Advanced-Portals/<br/>https://advancedportals.sekwah.com/ |
 | MySQL Player Data Bridge   | サーバー間のプレイヤー情報を共有するためのプラグイン                                                           |
 | GeyserSkinManager          | 統合版スキンを反映する                                                                                         |
 | Geyser                     | 統合版クライアントのパケットをJava版のパケットに変換するプラグイン                                             |
