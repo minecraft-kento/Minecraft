@@ -20,7 +20,7 @@ Velocity
 | Geyser                     | 統合版クライアントのパケットをJava版のパケットに変換するプラグイン                                             |
 | Floodgate                  | 統合版クライアントを認証無しで接続可能にする                                                                   |
 | LuckPerms                  | 高性能な権限管理プラグイン。コマンドはもちろん、Webページで権限の編集も可能。                                  |
-| MCXboxBroadcastGeyser      | Xboxのゲーマータグのフレンド登録だけでサーバーに参加することができる補助クライアント。Geyserとの併用が必須。   |
+| MCXboxBroadcastGeyser      | Xboxのゲーマータグのフレンド登録だけでサーバーに参加することができる補助クライアント。<br/>Geyserとの併用が必須。   |
 | ViaVersion                 | 新しいクライアントバージョンを接続可能にする (クライアントver > サーバーver の場合も接続可能になる)            |
 | ViaBackwards               | 古いクライアントバージョンを接続可能にする (クライアントが 1.8～最新版)                                        |
 | WorldEdit                  |                                                                                                                |
