@@ -38,5 +38,11 @@ Velocity
 
 ## 備考
 
-nginx によるリバースプロキシを用意すると尚良い？  
-DNSサーバーも用意し、広告ブロックとSwitch用マイクラ特集サーバーのドメインを登録する。  
+DNSを用意するのは Switch 用、Switchを無くせば「DNS」と「BedrockConnect」は不要になる。  
+Multiverse-Core のほうが楽そうだがサーバー分散が可能なこちらの構図を考えてみた。  
+  
+nginx のリバースプロキシ機能でIPアドレスを非公開にできるのでセキュリティ対策になる？  
+
+## 構成図
+
+![システム構成図](mc_servers.drawio.svg)
