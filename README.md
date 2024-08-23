@@ -16,15 +16,17 @@ Velocity
 |----------------------------|----------------------------------------------------------------------------------------------------------------|
 | Advanced-Portals           | サーバー間の移動用ポータル<br/>https://github.com/sekwah41/Advanced-Portals/<br/>https://advancedportals.sekwah.com/ |
 | MySQL Player Data Bridge   | サーバー間のプレイヤー情報を共有するためのプラグイン                                                           |
-| GeyserSkinManager          | 統合版スキンを反映する                                                                                         |
-| Geyser                     | 統合版クライアントのパケットをJava版のパケットに変換するプラグイン                                             |
-| Floodgate                  | 統合版クライアントを認証無しで接続可能にする                                                                   |
+| GeyserSkinManager          | 統合版スキンを反映する<br/>https://github.com/Camotoy/GeyserSkinManager                                                                                         |
+| Geyser                     | 統合版クライアントのパケットをJava版のパケットに変換するプラグイン<br/>https://geysermc.org/download                                             |
+| Floodgate                  | 統合版クライアントを認証無しで接続可能にする<br/>https://geysermc.org/wiki/floodgate/setup                                                                   |
 | LuckPerms                  | 高性能な権限管理プラグイン。コマンドはもちろん、Webページで権限の編集も可能。                                  |
-| MCXboxBroadcastGeyser      | Xboxのゲーマータグのフレンド登録だけでサーバーに参加することができる補助クライアント。<br/>Geyserとの併用が必須。   |
-| ViaVersion                 | 新しいクライアントバージョンを接続可能にする (クライアントver > サーバーver の場合も接続可能になる)            |
-| ViaBackwards               | 古いクライアントバージョンを接続可能にする (クライアントが 1.8～最新版)                                        |
-| WorldEdit                  |                                                                                                                |
-| WorldGurad                 | 火,TNT,クリーパーなどを含めて各種の破壊からのワールド保護機能。                                                |
+| MCXboxBroadcastGeyser      | Xboxのゲーマータグのフレンド登録だけでサーバーに参加することができる補助クライアント。<br/>Geyserとの併用が必須。<br/>https://github.com/MCXboxBroadcast/Broadcaster   |
+| ViaVersion                 | 新しいクライアントバージョンを接続可能にする (クライアントver > サーバーver の場合も接続可能になる)<br/>https://github.com/ViaVersion/ViaVersion            |
+| ViaBackwards               | 古いクライアントバージョンを接続可能にする (クライアントが 1.8～最新版)<br/>https://github.com/ViaVersion/ViaBackwards                                        |
+| WorldEdit                  | https://www.curseforge.com/minecraft/mc-mods/worldedit                                                                                                               |
+| WorldGuard                 | 火,TNT,クリーパーなどを含めて各種の破壊からのワールド保護機能。<br/>https://dev.bukkit.org/projects/worldguard                                                |
+
+※ MCXboxBroadcastGeyser はプラグインではなくサーバーっぽい感じでした。
 
 ## 作成するサーバー
 1. Switch用特集サーバー (BedrockConnect)
