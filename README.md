@@ -47,7 +47,7 @@ nginx のリバースプロキシ機能でIPアドレスを非公開にできる
 
 ## 構成図
 
-![システム構成図](mc_servers.drawio.svg)
+![システム構成図](システム構成図.drawio.svg)
 
 ## Docker イメージについて
 
