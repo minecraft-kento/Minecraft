@@ -1,0 +1,92 @@
+####################################################################################################
+# マインクラフトサーバーに必要なものを用意するための Docker Compose ファイル
+# 
+# ポート一覧
+#  53: DNS用ポート
+#  19132: Switch用 外部サーバー接続用サーバー
+#  20000: マイクラサーバー
+####################################################################################################
+
+
+####################################################################################################
+# サービス
+####################################################################################################
+services:
+  # Alpine Linux 調査用、最終的には削除する予定
+  alpine:
+    image: alpine:latest
+    networks:
+      core-dns:
+    dns:
+      - 172.16.238.10
+    stdin_open: true
+    tty: true
+
+  # CoreDNS Distroless サーバー
+  coredns:
+    image: coredns/coredns:latest
+    container_name: coredns
+    command: -conf /etc/coredns/Corefile
+    configs:
+      - source: coredns
+        target: /etc/coredns/Corefile
+    networks:
+      core-dns:
+        ipv4_address: 172.16.238.10
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    stdin_open: true
+    tty: true
+
+  # Switch用特集サーバー (BedrockConnect)
+  connector:
+    build:
+      context: ./Dockerfiles
+      dockerfile: BedrockConnect.Dockerfile
+    container_name: connector
+    networks:
+      core-dns:
+        ipv4_address: 172.16.238.11
+    ports:
+      - "19132:19132/udp"
+    stdin_open: true
+    tty: true
+
+  # Minecraft Server
+  server:
+    build:
+      context: ./Dockerfiles
+      dockerfile: Minecraft.Dockerfile
+    container_name: server1
+    volumes:
+      - ./Data/server1/config:/opt/srv/minecraft/config
+      - ./Data/server1/worlds:/opt/srv/minecraft/worlds
+      - ./Data/server1/plugins:/opt/srv/minecraft/plugins
+      - ./Data/server1/data:/opt/srv/minecraft/data
+      - ./Data/server1/logs:/opt/srv/minecraft/logs
+    networks:
+      core-dns:
+        ipv4_address: 172.16.238.21
+    ports:
+      - "25565:25565/tcp"
+      - "25565:25565/udp"
+    stdin_open: true
+    tty: true
+
+####################################################################################################
+# 設定情報 : ホスト上のローカルファイルを指定する場所
+####################################################################################################
+configs:
+  coredns:
+    file: ./Configs/CoreDNS/Corefile
+
+####################################################################################################
+# ネットワーク : ネットワークスイッチっぽいやつ？
+####################################################################################################
+networks:
+  core-dns:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"

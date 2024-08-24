@@ -1,0 +1,19 @@
+. {
+    whoami
+    errors
+    log . "{proto} {remote} Request: {name} {type} {>id}"
+
+    hosts {
+        192.168.0.4 minecraft.local
+        192.168.0.4 geo.hivebedrock.network
+        192.168.0.4 hivebedrock.network
+        192.168.0.4 play.inpvp.net
+        192.168.0.4 mco.lbsg.net
+        192.168.0.4 play.galaxite.net
+        192.168.0.4 play.enchanted.gg
+        fallthrough
+    }
+
+    forward . 1.1.1.1 8.8.8.8
+    reload
+}
