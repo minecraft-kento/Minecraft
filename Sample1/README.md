@@ -10,7 +10,8 @@
 2. [BedrockConnect](https://github.com/Pugmatt/BedrockConnect/releases/download/1.49/BedrockConnect-1.0-SNAPSHOT.jar)
 3. [Pufferfish](https://ci.pufferfish.host/job/Pufferfish-1.21/11/artifact/build/libs/pufferfish-paperclip-1.21.1-R0.1-SNAPSHOT-mojmap.jar)
 
-CoreDNS のみ debian Slim なので、機会を見て Distroless で再構築予定
+CoreDNS は gcr.io/distroless/static-debian11:nonroot の distroless 使ってた！
+問題なし！
 
 ## プラグイン
 

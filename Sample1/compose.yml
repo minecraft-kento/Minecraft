@@ -6,27 +6,30 @@
 #  19132: Switch用 外部サーバー接続用サーバー
 #  20000: マイクラサーバー
 ####################################################################################################
-
+name: Minecraft
 
 ####################################################################################################
 # サービス
 ####################################################################################################
 services:
-  # Alpine Linux 調査用、最終的には削除する予定
-  alpine:
-    image: alpine:latest
-    networks:
-      core-dns:
-    dns:
-      - 172.16.238.10
-    stdin_open: true
-    tty: true
+  # # Alpine Linux 調査や実験に使用
+  # alpine:
+  #   image: alpine:latest
+  #   container_name: alpines
+  #   networks:
+  #     core-dns:
+  #   dns:
+  #     - 172.16.238.10
+  #   stdin_open: true
+  #   tty: true
 
   # CoreDNS Distroless サーバー
   coredns:
-    image: coredns/coredns:latest
+    build:
+      context: ./Dockerfiles
+      dockerfile: CoreDNS.Dockerfile
+    image: minecraft/dns/server:latest
     container_name: coredns
-    command: -conf /etc/coredns/Corefile
     configs:
       - source: coredns
         target: /etc/coredns/Corefile
@@ -44,6 +47,7 @@ services:
     build:
       context: ./Dockerfiles
       dockerfile: BedrockConnect.Dockerfile
+    image: minecraft/1.21/jdk/21/connector/bedrockconnect:1.49
     container_name: connector
     networks:
       core-dns:
@@ -58,13 +62,14 @@ services:
     build:
       context: ./Dockerfiles
       dockerfile: Minecraft.Dockerfile
-    container_name: server1
+    image: minecraft/1.21/jdk/21/server/pufferfish:1.21.1
+    container_name: server
     volumes:
-      - ./Data/server1/config:/opt/srv/minecraft/config
-      - ./Data/server1/worlds:/opt/srv/minecraft/worlds
-      - ./Data/server1/plugins:/opt/srv/minecraft/plugins
-      - ./Data/server1/data:/opt/srv/minecraft/data
-      - ./Data/server1/logs:/opt/srv/minecraft/logs
+      - ./Data/config:/opt/srv/minecraft/config
+      - ./Data/worlds:/opt/srv/minecraft/worlds
+      - ./Data/plugins:/opt/srv/minecraft/plugins
+      - ./Data/data:/opt/srv/minecraft/data
+      - ./Data/logs:/opt/srv/minecraft/logs
     networks:
       core-dns:
         ipv4_address: 172.16.238.21

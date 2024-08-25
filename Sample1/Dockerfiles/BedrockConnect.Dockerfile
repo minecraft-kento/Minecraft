@@ -7,6 +7,7 @@ RUN wget -P /tmp https://github.com/Pugmatt/BedrockConnect/releases/download/1.4
 
 ####################################################################################################
 # Switch 用 特集サーバー
+# Minecraft support version for 1.21.20
 # https://github.com/Pugmatt/BedrockConnect
 ####################################################################################################
 # FROM gcr.io/distroless/java21
