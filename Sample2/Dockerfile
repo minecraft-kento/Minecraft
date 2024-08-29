@@ -1,8 +1,6 @@
 ####################################################################################################
 # Alpine Linux
-# Git からリリースされている BedrockConnect の JAR ファイルをダウンロードする。
-# 
-# 統合版 Realms 1.21.20 に対応したSNAPSHOTを取得
+# ViaProxy の JAR ファイルをダウンロードする。
 ####################################################################################################
 FROM alpine:latest AS downloader
 RUN wget -P /tmp https://ci.viaversion.com/view/All/job/ViaProxy/lastSuccessfulBuild/artifact/build/libs/ViaProxy-3.3.4-SNAPSHOT.jar

@@ -1,0 +1,17 @@
+name: Minecraft
+
+####################################################################################################
+# サービス
+####################################################################################################
+services:
+  be-server:
+    build: .
+    image: minecraft/server/jsprismarine
+    container_name: be-server
+    ports:
+      - "19132:19132/udp"
+    volumes:
+      - ./bedrock_server:/app
+    stdin_open: true
+    tty: true
+    network_mode: host

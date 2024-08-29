@@ -1,0 +1,19 @@
+name: Minecraft
+
+####################################################################################################
+# サービス
+####################################################################################################
+services:
+  # ViaProxy
+  proxy:
+    image: endstone/endstone
+    container_name: be-server
+    command: endstone -y
+    ports:
+      - "19132:19132/udp"
+    volumes:
+      - ./run:/app/run
+      - ./bedrock_server:/home/endstone/bedrock_server:rw
+    stdin_open: true
+    tty: true
+    network_mode: host
