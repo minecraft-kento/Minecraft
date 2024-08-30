@@ -6,5 +6,5 @@ Docker上で起動した場合設定をどうすればよいかが不明だっ�
 
 ## Proxyサーバーについて
 
-1. [ViaProxy Github Page](https://github.com/ViaVersion/ViaProxy?tab=readme-ov-file)
+1. [ViaProxy Github Page](https://github.com/ViaVersion/ViaProxy)
 2. [ViaProxy 統合版 Realms 1.21.20対応版 JAR ダウンロード先](https://ci.viaversion.com/view/All/job/ViaProxy/)

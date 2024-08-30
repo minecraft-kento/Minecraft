@@ -11,4 +11,18 @@ services:
     container_name: proxy
     volumes:
       - ./run:/app/run
-    network_mode: host
+    networks:
+      core-dns:
+        ipv4_address: 172.16.238.21
+    stdin_open: true
+    tty: true
+
+####################################################################################################
+# ネットワーク : ネットワークスイッチっぽいやつ？
+####################################################################################################
+networks:
+  core-dns:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"
