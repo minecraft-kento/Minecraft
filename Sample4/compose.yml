@@ -7,11 +7,23 @@ services:
   be-server:
     build: .
     image: minecraft/server/jsprismarine
-    container_name: be-server
+    container_name: minecraft-bedrock-server
     ports:
       - "19132:19132/udp"
-    volumes:
-      - ./bedrock_server:/app
+    # volumes:
+    #   - ./bedrock_server:/app
     stdin_open: true
     tty: true
-    network_mode: host
+    networks:
+      core-dns:
+        ipv4_address: 172.16.238.21
+
+####################################################################################################
+# ネットワーク : ネットワークスイッチっぽいやつ？
+####################################################################################################
+networks:
+  core-dns:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"

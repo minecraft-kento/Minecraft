@@ -1,16 +1,14 @@
 FROM alpine:latest AS downloader
+WORKDIR /tmp/git
 RUN apk add bash git
-RUN git clone -b @jsprismarine/server@0.6.0 https://github.com/JSPrismarine/JSPrismarine.git /usr/src/app
+RUN git clone -b "@jsprismarine/server@0.6.0" "https://github.com/JSPrismarine/JSPrismarine.git" /tmp/git
+# CMD ["bash"]
 
-FROM node:22-slim AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack use pnpm@latest
-RUN corepack enable
-
-FROM base AS build
-COPY --from=downloader /usr/src/app /app
-WORKDIR /app
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+FROM node:22-slim
+RUN corepack enable && \
+    corepack prepare pnpm@latest --activate
+WORKDIR /app/JSPrismarine
+COPY --from=downloader /tmp/git /app/JSPrismarine
+RUN pnpm install . -w
 RUN pnpm run build
-CMD [ "pnpm", "start" ]
+CMD [ "pnpm", "run", "start" ]
