@@ -5,10 +5,11 @@ RUN git clone -b "@jsprismarine/server@0.6.0" "https://github.com/JSPrismarine/J
 # CMD ["bash"]
 
 FROM node:22-slim
-RUN corepack enable && \
-    corepack prepare pnpm@latest --activate
 WORKDIR /app/JSPrismarine
 COPY --from=downloader /tmp/git /app/JSPrismarine
-RUN pnpm install . -w
-RUN pnpm run build
-CMD [ "pnpm", "run", "start" ]
+RUN corepack enable && \
+    corepack prepare pnpm@latest --activate
+# RUN pnpm install
+# RUN pnpm run build
+# CMD [ "pnpm", "run", "start" ]
+CMD ["/bin/sh"]
